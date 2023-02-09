@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write *.js",
-    "start":"node index.js"
+    "format": "prettier --write src/*.js",
+    "start": "node src/CRUDBookNoDB.js",
+    "dev": "nodemon src/CRUDBookNoDB.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "nodemon": "^2.0.20",
     "prettier": "^2.8.3"
   },
   "dependencies": {
