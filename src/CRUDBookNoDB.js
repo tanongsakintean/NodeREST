@@ -23,6 +23,7 @@ let books = [
 ];
 
 app.get("/books", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   res.json(books);
 });
 
@@ -35,15 +36,15 @@ app.get("/books/:id", (req, res) => {
   }
 });
 
-app.post("/books", (req, res) => {
+app.post("/books/:title/:author", (req, res) => {
   const book = {
     id: books.length + 1,
-    title: req.body.title,
-    author: req.body.author,
+    title: req.params.title,
+    author: req.params.author,
   };
 
   books.push(book);
-
+  // console.log(req.params);
   res.send(book);
 });
 
@@ -56,8 +57,6 @@ app.put("/books/:id", (req, res) => {
 
   book.title = req.body.title;
   book.author = req.body.author;
-
-  console.log(req.body);
 
   res.send(book);
 });
