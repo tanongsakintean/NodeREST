@@ -1,12 +1,12 @@
 {
-  "name": "NodeREST",
+  "name": "node",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "format": "prettier --write src/*.js",
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/CRUDBookSQLite.js"
   },
   "keywords": [],
   "author": "",
