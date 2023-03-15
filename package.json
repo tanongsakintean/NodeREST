@@ -6,7 +6,7 @@
   "scripts": {
     "format": "prettier --write src/*.js",
     "start": "node src/index.js",
-    "dev": "nodemon src/SequlizeSQLiteCRUDBook.js"
+    "dev": "nodemon src/MongoDBCRUD.js"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +18,8 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "mongoose": "^7.0.1",
+    "pg": "^8.10.0",
     "sequelize": "^6.29.0",
     "sqlite3": "^5.1.4"
   }
