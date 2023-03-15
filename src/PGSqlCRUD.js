@@ -31,6 +31,7 @@ sequelize.sync();
 app.get("/books", (req, res) => {
   Book.findAll()
     .then((books) => {
+      console.log(books[books.length - 1].id);
       res.json(books);
     })
     .catch((err) => {
@@ -53,11 +54,18 @@ app.get("/books/:id", (req, res) => {
 });
 
 app.post("/books", (req, res) => {
-  Book.create(req.body)
-    .then((book) => {
-      res.send(book);
-    })
-    .catch((err) => res.status(500).send(err));
+  let maxId = 1;
+  Book.findAll().then((books) => {
+    maxId = books[books.length - 1].id;
+    maxId++;
+    let data = req.body;
+    Object.assign(data, { id: maxId });
+    Book.create(data)
+      .then((book) => {
+        res.send(book);
+      })
+      .catch((err) => res.status(500).send(err));
+  });
 });
 
 app.put("/books/:id", (req, res) => {
