@@ -36,7 +36,7 @@ app.get("/books", (req, res) => {
       res.json(books);
     })
     .catch((err) => {
-      res.status(500).send(err);
+      res.status(20).send(err);
     });
 });
 
